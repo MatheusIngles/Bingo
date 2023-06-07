@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo</title>
+
+    <!--Links-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://i0.wp.com/imagensemoldes.com.br/wp-content/uploads/2020/05/Circo-PNG.png?fit=1355%2C1600&ssl=1" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="Video">
+        <button onclick="Start()"><h1 id="tela_inicial">BINGO</h1></button>
+        <audio id="music" src="musics/SnapSave.io - Bingo Song (128 kbps) (1).mp3"></audio>
+        <video src="videos/bingo.mp4" type="video/mp4" id="Video-Starter">
+        </video>
+    </div>
+
+    <header>
+
+        <div id="Refresh">
+            <button onclick="Refresh()">
+                <H1>Bingo</H1>
+            </button>
+        </div>
+
+        <div id="divisor"></div>
+
+        <div id="play">
+            <button onclick="PauseMusic()"> 
+                <img id="PlayPause" src="https://img.uxwing.com/wp-content/themes/uxwing/download/video-photography-multimedia/pause-button-red-icon.png">
+            </button>
+        </div>
+
+    </header>
+
+    <main>
+
+        <div id="Esquerda">
+
+            <button>
+
+            </button>
+        
+            <div id="Caixa">
+
+            </div>
+
+        </div>
+
+        
+        <div id="Direita">
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+    </footer>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
