@@ -13,6 +13,7 @@
     top: 0%;
     left: 0%;
     z-index: 2;
+        display: none;
 }
 
 #Video button{
@@ -27,9 +28,9 @@
 
 
 #Video button h1{
-    font-family: 'Caveat', cursive;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 16vw;
-    color: #efe891;
+    color: white;
 }
 
 #Video button:hover{
@@ -58,7 +59,7 @@ body{
     width: 100vw;
     height: 100vh;
     display: flex;
-    background-image: url(https://static.vecteezy.com/system/resources/previews/001/330/137/original/empty-stage-with-closed-red-theater-curtain-free-vector.jpg);
+    background-image: url(https://t3.ftcdn.net/jpg/05/31/73/54/360_F_531735463_DM0jlqNNJy5JTEcsrbioBUSWbVnrVbXP.jpg);
     background-position: center;
     background-size: cover;
     flex-direction: column;
@@ -87,16 +88,28 @@ header #Refresh button{
     width: 60%;
 }
 
+header #Refresh button:hover{
+    cursor: pointer;
+}
 
 header #Refresh button h1{
-    color: #efe891;
-    font-size: 6vh;
-    font-family: 'Caveat', cursive;
+    color: #00000000;
+    -webkit-text-stroke: 1px white;
+    font-size: 4vw;
+    font-family:'Courier New', Courier, monospace
+}
+
+header #Refresh button h1:hover{
+    color: crimson;
+    -webkit-text-stroke: 0px;
 }
 
 header #divisor{
     width: 60%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header #play{
@@ -114,23 +127,181 @@ header #play button{
     height: 60%;
 }
 
-#PlayPause{
-    width: 3vw;
-    height: 90%;
+header #play button:hover{
+    cursor: pointer;
 }
 
+#PlayPause{
+    width:  4vw;
+    height: 3vw;
+}
+
+#PlayPause:hover{
+    border-radius: 120px;
+    box-shadow: 0px 0px 10px crimson;
+}
 
 /* Main */
 
 main{
     width: 100%;
-    height: 74%;
+    height: 92%;
+    display: flex
 }
 
-footer{
-    width: 100%;
-    height: 18%;
-    background-image: url(Imagens/Screenshot_6.png);
+/* Parte Esquerda da Main */
+
+#Esquerda{
+    width: 65%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#painel{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 90%;
+    width: 90%;
+    border-radius: 2vw;
+    background-image: url(Imagens/Sem\ título.png);
     background-position: center;
     background-size: cover;
+}
+
+
+#Caixa {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Mudando A table */
+
+#Caixa table {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 40%;
+}
+
+#Caixa table thead {
+    width: 100%;
+    height: 20%;
+}
+
+#Caixa table thead tr {
+    height: 100%;
+    display: flex;
+    width: 100%;
+    position: sticky; 
+    top: 0; 
+}
+
+#Caixa table thead #icone {
+    border-radius: 20px 20px 20px 20px;
+    width: 30%;
+    border: solid 1px;
+    padding: 10px;
+    background-image: url();
+}
+
+#Caixa table thead #Nickname {
+    border-radius: 10px 10px 0px 0px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: solid 1px;
+    padding: 10px;
+    background-color: peru;
+}
+
+#Caixa table tbody{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+}
+
+
+#Caixa table tbody tr{
+    display: flex;
+    width: 100%;
+    height: 20%;
+}
+
+
+#Caixa table tbody tr td{
+    border: 1px solid;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+    background-color: peru;
+}
+
+
+/* Parte Direita da Main */
+
+#Direita{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+    height: 100%;
+}
+
+#Direita button{
+    background-color: #00000000;
+    border: none;
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dialogo Do Barmem */
+
+#Perguntas{
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    width: 100%;
+    height: 30%;
+    border-radius: 100px;
+    background-color: white;
+}
+
+#Perguntas h4{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+    height: 10%;
+}
+
+#falas{
+    padding: 2%;
+    font-family: 'Courier New', Courier, monospace;
+    width: 80%;
+    height: 30%;
+}
+
+#Perguntas #butoes{
+    display: none;
+    width: 100%;
+    height: 40%;
 }

@@ -7,7 +7,7 @@
 
     <!--Links-->
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="https://i0.wp.com/imagensemoldes.com.br/wp-content/uploads/2020/05/Circo-PNG.png?fit=1355%2C1600&ssl=1" type="image/x-icon">
+    <link rel="shortcut icon" href="Imagens/png-transparent-darkest-dungeon-tavern-wikia-dungeon-crawl-game-others-miscellaneous-dark-cartoon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
@@ -17,21 +17,22 @@
 <body>
 
     <div id="Video">
-        <button onclick="Start()"><h1 id="tela_inicial">BINGO</h1></button>
-        <audio id="music" src="musics/SnapSave.io - Bingo Song (128 kbps) (1).mp3"></audio>
-        <video src="videos/bingo.mp4" type="video/mp4" id="Video-Starter">
+        <button onclick="Start()" type="button"><h1 id="tela_inicial">BINGO</h1></button>
+        <audio id="music" src="musics/SaveTube.io - RPG Playlist - Tavern_Inn Music (128 kbps).mp3"></audio>
+        <video src="videos/SaveTube.io-Door opening animation with sound (From Resident Evil) _ Animazione apertura porta-(480p).mp4" type="video/mp4" id="Video-Starter">
         </video>
     </div>
 
     <header>
 
         <div id="Refresh">
-            <button onclick="Refresh()">
+            <button onclick="Refresh()" type="button">
                 <H1>Bingo</H1>
             </button>
         </div>
 
-        <div id="divisor"></div>
+        <div id="divisor">
+        </div>
 
         <div id="play">
             <button onclick="PauseMusic()"> 
@@ -44,29 +45,80 @@
     <main>
 
         <div id="Esquerda">
+            <div id="painel">
+                <div id="Caixa">
+                    <table>
 
-            <button>
+                        <thead>
+                            <tr>
+                                <td id="icone"><img src="" alt=""></td>
+                                <td id="Nickname">Nome do jogador</td>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <tr>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                             </tr>
 
-            </button>
-        
-            <div id="Caixa">
+                             <tr>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                             </tr>
 
+                             <tr>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                             </tr>
+
+                             <tr>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                             </tr>
+
+                             <tr>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                             </tr>
+                        </tbody>
+                    </table>
+                                        
+                </div>
             </div>
-
         </div>
 
         
         <div id="Direita">
+            <button ondblclick="Dialogo()" onclick="Dialogo()">
+                <img src="Imagens/png-transparent-darkest-dungeon-tavern-wikia-dungeon-crawl-game-others-miscellaneous-dark-cartoon.png" alt="`Barmem">
+            </button>
 
+            <div id="Perguntas">
+                <h4>Jack "Marés Profundas" McGregor</h4>
+                <p id="falas"></p>
+                
+                <div id="butoes">
+                </div>
+            </div>
         </div>
 
     </main>
-
-
-    <footer>
-
-    </footer>
-    
 
     <script src="script.js"></script>
 </body>
