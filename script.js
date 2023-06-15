@@ -58,30 +58,69 @@ function Dialogo() {
     var DialogoP = document.getElementById("falas");
 
     if (DialogoDiv.style.display === "none") {
-        setTimeout(function() {
             DialogoDiv.style.display = "flex";
 
             if (!verificacao) {
-                DialogoP.innerHTML = "Bem-vindo, marujo! Sente-se e deixe-me contar uma história dos mares que você ainda não conhece. Sou Jack Marés Profundas McGregor, o orgulhoso capitão deste estabelecimento conhecido como O Barril do Tesouro. Aqui, além de um bom gole, você encontrará diversão de sobra.";
+                var texto1 = "Bem-vindo, marujo! Sente-se e deixe-me contar uma história dos mares que você ainda não conhece. Sou Jack Marés Profundas McGregor, o orgulhoso capitão deste estabelecimento conhecido como O Barril do Tesouro. Aqui, além de um bom gole, você encontrará diversão de sobra.";
+                var texto2 = "Vejo que você é novo por estas águas, um rosto fresco navegando pelo desconhecido. Permita-me apresentar-lhe o tesouro escondido nas brincadeiras que temos a bordo. Hoje, lhe convido para embarcar em uma aventura diferente, um jogo que nos faz sentir a emoção de ganhar como se estivéssemos encontrando uma ilha cheia de ouro: o bingo pirata!";
+                var texto3 = "Ouça bem, jovem aventureiro, pois neste bingo você descobrirá um universo repleto de números misteriosos e prêmios que farão seu coração bater mais forte. Junte-se a nós nesta noite e teste sua sorte. Será como atirar um dado contra as ondas revoltas do mar. Quem sabe se, com um pouco de astúcia, você não irá se tornar o mais temido vencedor do bingo dos sete mares?";
 
-                setInterval(function() {
-                    DialogoP.innerHTML = "Vejo que você é novo por estas águas, um rosto fresco navegando pelo desconhecido. Permita-me apresentar-lhe o tesouro escondido nas brincadeiras que temos a bordo. Hoje, lhe convido para embarcar em uma aventura diferente, um jogo que nos faz sentir a emoção de ganhar como se estivéssemos encontrando uma ilha cheia de ouro: o bingo pirata!";
-                }, 10000);
+                var palavras1 = texto1.split(" ");
+                var palavras2 = texto2.split(" ");
+                var palavras3 = texto3.split(" ");
 
-                setInterval(function() {
-                    DialogoP.innerHTML = "Ouça bem, jovem aventureiro, pois neste bingo você descobrirá um universo repleto de números misteriosos e prêmios que farão seu coração bater mais forte. Junte-se a nós nesta noite e teste sua sorte. Será como atirar um dado contra as ondas revoltas do mar. Quem sabe se, com um pouco de astúcia, você não irá se tornar o mais temido vencedor do bingo dos sete mares?";
-                }, 20000);
+                var contador1 = 0;
+                var contador2 = 0;
+                var contador3 = 0;
 
-                setInterval(function() {
+                var intervalo1 = setInterval(function() {
+                if (contador1 < palavras1.length) {
+                    DialogoP.innerHTML += palavras1[contador1] + " ";
+                    contador1++;
+                } else {
+                    clearInterval(intervalo1);
+                }
+                }, 100);
+
+                setTimeout(function() {
                     DialogoP.innerHTML = "";
-                }, 30000);
+                    var intervalo2 = setInterval(function() {
+                    if (contador2 < palavras2.length) {
+                    DialogoP.innerHTML += palavras2[contador2] + " ";
+                    contador2++;
+                    } else {
+                    clearInterval(intervalo2);
+                    }
+                }, 100);
+                }, 9000);
+
+                setTimeout(function() {
+                    DialogoP.innerHTML = "";
+                    var intervalo3 = setInterval(function() {
+                    if (contador3 < palavras3.length) {
+                    DialogoP.innerHTML += palavras3[contador3] + " ";
+                    contador3++;
+                    } else {
+                    clearInterval(intervalo3);
+                    }
+                }, 200);
+                }, 18000);
+
+                setTimeout(function() {
+                DialogoP.innerHTML = "";
+                }, 29000);
 
                 verificacao = true;
+
+                setTimeout(function() {
+                bottons(DialogoP);
+                }, 29000);
+
+
             } else{
                 bottons(DialogoP,DialogoDiv)
             }
             
-        }, 0);
     } else {
         DialogoDiv.style.display = "none";
     }
@@ -91,8 +130,29 @@ function Dialogo() {
 function bottons(DialogoP) {
     var butoes = document.getElementById("butoes")
 
-    DialogoP.remove();
+    DialogoP.style.display = "none";
     butoes.style.height = "60%"
-    butoes.display = "flex"
+    butoes.style.display = "flex"
 
 }
+
+
+function Adicinar(){
+    var PopUP = document.getElementById("Adicinar")
+    if(PopUP.style.display === "none"){
+    PopUP.style.display = "flex"
+    } else {
+    PopUP.style.display = "none"
+}
+}
+
+function movePlaceholderUp() {
+    var input = document.getElementById("Nome");
+    input.classList.add("placeholder-up");
+  }
+  
+function movePlaceholderDown() {
+    var input = document.getElementById("Nome");
+    input.classList.remove("placeholder-up");
+  }
+  
