@@ -173,30 +173,44 @@ main{
 }
 
 
-#Caixa {
+#caixa {
     width: 100%;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+    overflow-y: scroll;
 }
+
+#caixa::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  #caixa::-webkit-scrollbar-thumb {
+    background-color: crimson;
+    border-radius: 4px;
+  }
+  
+  #caixa::-webkit-scrollbar-thumb:hover {
+    background-color:  black;
+  }  
 
 /* Mudando A table */
 
-#Caixa table {
+#caixa table {
     display: flex;
     flex-direction: column;
     width: 30%;
     height: 40%;
 }
 
-#Caixa table thead {
+#caixa table thead {
     width: 100%;
     height: 20%;
 }
 
-#Caixa table thead tr {
+#caixa table thead tr {
     height: 100%;
     display: flex;
     width: 100%;
@@ -204,15 +218,22 @@ main{
     top: 0; 
 }
 
-#Caixa table thead #icone {
+#caixa table thead #icone {
     border-radius: 20px 20px 20px 20px;
     width: 30%;
+    display: flex;
     border: solid 1px;
-    padding: 10px;
+    padding: none;
     background-image: url();
 }
 
-#Caixa table thead #Nickname {
+#caixa table thead #icone img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+#caixa table thead #Nickname {
     border-radius: 10px 10px 0px 0px;
     display: inline-flex;
     justify-content: center;
@@ -223,7 +244,7 @@ main{
     background-color: peru;
 }
 
-#Caixa table tbody{
+#caixa table tbody{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -231,14 +252,14 @@ main{
 }
 
 
-#Caixa table tbody tr{
+#caixa table tbody tr{
     display: flex;
     width: 100%;
     height: 20%;
 }
 
 
-#Caixa table tbody tr td{
+#caixa table tbody tr td{
     border: 1px solid;
     display: inline-flex;
     align-items: center;
@@ -375,7 +396,7 @@ main{
 #Escolha button:hover{
     cursor: pointer;
     border-radius: 100px;
-    box-shadow: 0px 0px 20px crimson;
+    box-shadow: 0px 0px 20px 6px crimson;
 }
 
 #Escolha button img{
@@ -390,6 +411,7 @@ main{
     right: 0%;
     width: 15%;
     height: 15%;
+    border-radius: 1000px;
     background-color: #00000000;
     border: NONE;
 }
@@ -402,8 +424,8 @@ main{
 
 #preinput #X:hover{
     cursor: pointer;
-    border-radius: 100px;
-    box-shadow: 0px 0px 20px crimson;
+    border-radius: 200px;
+    box-shadow: 0px 0px 30px 4px black;
 }
 
 #preinput {
@@ -411,6 +433,7 @@ main{
     height: 100%;
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -418,6 +441,7 @@ main{
 #preinput input {
     width: 70%;
     padding: 1%;
+    margin: 3%;
     background-color: #00000000;
     border-top: none;
     border-left: none;
@@ -425,9 +449,23 @@ main{
     border-bottom: 2px solid black;
 }
   
-#preinput input.placeholder-up {
-    position: relative;
-    top: -20px;
+#preinput #criar{
+    background-color: white;
+    border-radius: 100px;
+    border: none;
+    padding: 3%;
 }
 
+#preinput #criar:hover{
+    box-shadow: 0px 0px 10px 4px crimson;
+    cursor: pointer;
+}
+
+#nome::placeholder {
+    color: black;
+  }
+  
+  #preinput::placeholder {
+    color: black;
+  }
   

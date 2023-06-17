@@ -46,59 +46,9 @@
 
         <div id="Esquerda">
             <div id="painel">
-                <div id="Caixa">
-                    <table>
-
-                        <thead>
-                            <tr>
-                                <td id="icone"><img src="" alt=""></td>
-                                <td id="Nickname">Nome do jogador</td>
-                            </tr>
-                        </thead>
-                        
-                        <tbody>
-                            <tr>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                             </tr>
-
-                             <tr>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                             </tr>
-
-                             <tr>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                             </tr>
-
-                             <tr>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                             </tr>
-
-                             <tr>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                             </tr>
-                        </tbody>
-                    </table>
-                                        
+                <div id="caixa">
+                   
+                    
                 </div>
             </div>
         </div>
@@ -115,7 +65,7 @@
                 
                 <div id="butoes">
                     <button onclick="Adicinar()">Adicionar</button>
-                    <button>Resetar</button>
+                    <button onclick="reiniciarJogo()">Resetar</button>
                     <button>Começar</button>
                 </div>
             </div>
@@ -128,33 +78,34 @@
 
             <h5>Escolha seu personagem!!!</h5>
             <Button class="imagens">
-                    <img src="Imagens/Personagens/Screenshot_1.png" alt="Nami">
+                    <img id="Nami" onclick="nami()" src="Imagens/Personagens/Screenshot_1.png" alt="Nami">
             </Button>
 
             <Button class="imagens">
-                    <img src="Imagens/Personagens/Screenshot_2.png" alt="">
+                    <img id="Lufi" onclick="lufi()" src="Imagens/Personagens/Screenshot_2.png" alt="Lufi">
             </Button>
 
             <Button class="imagens">
-                    <img src="Imagens/Personagens/Screenshot_3.png" alt="">
+                    <img id="Sanji" onclick="sanji()" src="Imagens/Personagens/Screenshot_3.png" alt="Sanji">
             </Button>
 
             <Button class="imagens">
-                    <img src="Imagens/Personagens/Screenshot_4.png" alt="">
+                    <img id="Zoro" onclick="zoro()" src="Imagens/Personagens/Screenshot_4.png" alt="Zoro">
             </Button>
 
             <Button class="imagens">
-                    <img src="Imagens/Personagens/Screenshot_5.png" alt="">
+                    <img id="Robin" onclick="robin()" src="Imagens/Personagens/Screenshot_5.png" alt="Robin">
             </Button>
         </div>
 
         <div id="preinput">
             <button id="X" onclick="Adicinar()">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/White_X_in_red_background.svg/2048px-White_X_in_red_background.svg.png" alt=" retorn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/White_X_in_red_background.svg/2048px-White_X_in_red_background.svg.png" alt="retorn">
             </button>
-            <input type="text" placeholder="Nome Do personagem" id="Nome" onfocus="movePlaceholderUp()" onblur="movePlaceholderDown()">
-            <button>Criar personagem!!</button>
+            <input type="text" placeholder="Nome Do personagem" id="nome">
+            <button id="criar" onclick="gerarCartela()">Criar personagem!!</button>
         </div>
+            
     </div>
 
     <script src="script.js"></script>

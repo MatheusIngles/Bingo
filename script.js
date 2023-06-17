@@ -1,3 +1,6 @@
+
+var jogadores = []
+
 /* Função inicial para Conseguir Fazer a intro */
 
 function Start(){
@@ -146,13 +149,134 @@ function Adicinar(){
 }
 }
 
-function movePlaceholderUp() {
-    var input = document.getElementById("Nome");
-    input.classList.add("placeholder-up");
-  }
+
+
+function gerarCartela(){
+
+    debugger
+    var nomeJogador = document.getElementById("nome").value;
+
+    var cartela = [gerarNumerosAleatorios(5,1,15), gerarNumerosAleatorios(5,16,30), gerarNumerosAleatorios(5,31,45),gerarNumerosAleatorios(5,46,60), gerarNumerosAleatorios(5,61,75)]
+
+    jogadores.push({
+        nomeJogador: nomeJogador,
+        cartela: cartela
+    });
+
+    Criar(nomeJogador, cartela);
+
+    console.log(jogadores)
+}
+
+function gerarNumerosAleatorios(quantidade, min, max){
+
+    if(quantidade > (max - min)){
+        console.log("Intervalo insuficiente ...");
+        return;
+    }
+
+    var numeros = [];
+
+    while(numeros.length < quantidade){
+        var aleatorio = Math.floor(Math.random()*(max - min) + min);
+        
+        if(!numeros.includes(aleatorio)){
+            numeros.push(aleatorio);
+        }
+    }
+
+    return numeros;
+
+}
+
+function reiniciarJogo(){
+ 
+
+
+
+
+
+
+    
+}
+
+
+function Criar(nomeJogador,cartela){
+    
+Adicinar()
+
+var div = document.getElementById("caixa");
+
+var tabela = document.createElement("table");
+
+var thead = document.createElement("thead");
+
+var tr = document.createElement("tr");
+
+var td_icone = document.createElement("td");
+td_icone.id = "icone";
+
+var img = document.createElement("img");
+img.id = "personagem_icone";
+img.src = sabio;
+img.alt = "Ícone do personagem";
+
+var td_nickname = document.createElement("td");
+td_nickname.id = "Nickname";
+td_nickname.innerText = nomeJogador;
+
+var tbody = document.createElement("tbody");
+
+for(var i = 0; i < 5; i++){
+    var tr_body = document.createElement('tr');
+    for(var j = 0; j < 5; j++){
+        var td = document.createElement('td');
+        
+            td.innerText = cartela[j][i]
+            tr_body.appendChild(td);
+
+    }
+    tbody.appendChild(tr_body)
+}
   
-function movePlaceholderDown() {
-    var input = document.getElementById("Nome");
-    input.classList.remove("placeholder-up");
-  }
-  
+div.appendChild(tabela);
+tabela.appendChild(thead);
+thead.appendChild(tr);
+tr.appendChild(td_icone);
+td_icone.appendChild(img);
+tr.appendChild(td_nickname);
+tabela.appendChild(tbody);
+
+}
+
+var sabio = ""
+
+function lufi(){
+    sabio = "Imagens/Personagens/Screenshot_2.png"
+
+    return sabio
+}
+
+function sanji(){
+    sabio = "Imagens/Personagens/Screenshot_3.png"
+
+    return sabio
+}
+
+function zoro(){
+    sabio = "Imagens/Personagens/Screenshot_4.png"
+
+    return sabio
+}
+
+function robin(){
+    sabio = "Imagens/Personagens/Screenshot_5.png"
+
+    return sabio
+}
+
+function nami(){
+    sabio = "Imagens/Personagens/Screenshot_1.png"
+
+    return sabio
+}
