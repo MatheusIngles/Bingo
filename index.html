@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bingo</title>
 
-    <!--Links-->
+    <!-- Links -->
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="Imagens/png-transparent-darkest-dungeon-tavern-wikia-dungeon-crawl-game-others-miscellaneous-dark-cartoon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
@@ -24,14 +23,19 @@
     </div>
 
     <header>
-
         <div id="Refresh">
             <button onclick="Refresh()" type="button">
-                <H1>Bingo</H1>
+                <h1>Bingo</h1>
             </button>
         </div>
 
-        <div id="divisor">
+        <div id="divisor" style="display: none;">
+            <div id="place">
+                <div id="numeros">
+                    <p id="tituo">Numeros Sortiados</p>
+                    <div id="os_numeros"></div>
+                </div>
+            </div>
         </div>
 
         <div id="play">
@@ -39,63 +43,51 @@
                 <img id="PlayPause" src="https://img.uxwing.com/wp-content/themes/uxwing/download/video-photography-multimedia/pause-button-red-icon.png">
             </button>
         </div>
-
     </header>
 
     <main>
-
         <div id="Esquerda">
             <div id="painel">
-                <div id="caixa">
-                   
-                    
-                </div>
+                <div id="caixa"></div>
             </div>
         </div>
-
         
         <div id="Direita">
             <button id="Barmem" ondblclick="Dialogo()" onclick="Dialogo()">
-                <img src="Imagens/png-transparent-darkest-dungeon-tavern-wikia-dungeon-crawl-game-others-miscellaneous-dark-cartoon.png" alt="`Barmem">
+                <img src="Imagens/png-transparent-darkest-dungeon-tavern-wikia-dungeon-crawl-game-others-miscellaneous-dark-cartoon.png" alt="Barmem">
             </button>
 
-            <div id="Perguntas" style="display: none;" >
+            <div id="Perguntas" style="display: none;">
                 <h4>Jack "Marés Profundas" McGregor</h4>
                 <p id="falas"></p>
                 
                 <div id="butoes">
                     <button onclick="Adicinar()">Adicionar</button>
                     <button onclick="reiniciarJogo()">Resetar</button>
-                    <button>Começar</button>
+                    <button onclick="iniciarSorteio()">Começar</button>
                 </div>
             </div>
         </div>
     </main>
 
-
     <div id="Adicinar" style="display: none;">
         <div id="Escolha">
-
             <h5>Escolha seu personagem!!!</h5>
-            <Button class="imagens">
-                    <img id="Nami" onclick="nami()" src="Imagens/Personagens/Screenshot_1.png" alt="Nami">
-            </Button>
-
-            <Button class="imagens">
-                    <img id="Lufi" onclick="lufi()" src="Imagens/Personagens/Screenshot_2.png" alt="Lufi">
-            </Button>
-
-            <Button class="imagens">
-                    <img id="Sanji" onclick="sanji()" src="Imagens/Personagens/Screenshot_3.png" alt="Sanji">
-            </Button>
-
-            <Button class="imagens">
-                    <img id="Zoro" onclick="zoro()" src="Imagens/Personagens/Screenshot_4.png" alt="Zoro">
-            </Button>
-
-            <Button class="imagens">
-                    <img id="Robin" onclick="robin()" src="Imagens/Personagens/Screenshot_5.png" alt="Robin">
-            </Button>
+            <button class="imagens">
+                <img id="Nami" onclick="nami()" src="Imagens/Personagens/Screenshot_1.png" alt="Nami">
+            </button>
+            <button class="imagens">
+                <img id="Lufi" onclick="lufi()" src="Imagens/Personagens/Screenshot_2.png" alt="Lufi">
+            </button>
+            <button class="imagens">
+                <img id="Sanji" onclick="sanji()" src="Imagens/Personagens/Screenshot_3.png" alt="Sanji">
+            </button>
+            <button class="imagens">
+                <img id="Zoro" onclick="zoro()" src="Imagens/Personagens/Screenshot_4.png" alt="Zoro">
+            </button>
+            <button class="imagens">
+                <img id="Robin" onclick="robin()" src="Imagens/Personagens/Screenshot_5.png" alt="Robin">
+            </button>
         </div>
 
         <div id="preinput">
@@ -105,7 +97,6 @@
             <input type="text" placeholder="Nome Do personagem" id="nome">
             <button id="criar" onclick="gerarCartela()">Criar personagem!!</button>
         </div>
-            
     </div>
 
     <script src="script.js"></script>
