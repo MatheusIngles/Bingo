@@ -1,4 +1,5 @@
 var jogadores = [];
+var numerosSorteados = []
 
 /* Função inicial para Conseguir Fazer a intro */
 function Start() {
@@ -142,10 +143,7 @@ function Adicinar() {
     }
 }
 
-function gerarCartela() {
-    var nomeJogador = document.getElementById("nome").value;
-
-    // Gerando a cartela com números aleatórios
+function novaCartela() {
     var cartela = [
         gerarNumerosAleatorios(5, 1, 15),
         gerarNumerosAleatorios(5, 16, 30),
@@ -154,14 +152,25 @@ function gerarCartela() {
         gerarNumerosAleatorios(5, 61, 75),
     ];
 
+    return cartela;
+}
+
+function gerarCartela() {
+    var nome = document.getElementById("nome").value;
+
+    // Gerando a cartela com números aleatórios
+    var cartela = novaCartela();
+
     // Adicionando o jogador e a cartela ao array jogadores
     jogadores.push({
-        nomeJogador: nomeJogador,
+        nome: nome,
         cartela: cartela,
+        imagem: sabio,
     });
 
-    // Chamando a função Criar para exibir a cartela na tela
-    Criar(nomeJogador, cartela);
+    // Chamando a função Criar para exibir a cartela na tela    
+    carregarJogadores()
+    Adicinar();
 
     console.log(jogadores);
 }
@@ -194,11 +203,10 @@ function reiniciarJogo() {
     });
 
     jogadores = [];
+    numerosSorteados = [];
 }
 
-function Criar(nomeJogador, cartela) {
-    Adicinar();
-
+function Criar(jogador) {
     var div = document.getElementById("caixa");
     var tabela = document.createElement("table");
     var thead = document.createElement("thead");
@@ -207,11 +215,11 @@ function Criar(nomeJogador, cartela) {
     td_icone.id = "icone";
     var img = document.createElement("img");
     img.id = "personagem_icone";
-    img.src = sabio;
+    img.src = jogador.imagem;
     img.alt = "Ícone do personagem";
     var td_nickname = document.createElement("td");
     td_nickname.id = "Nickname";
-    td_nickname.innerText = nomeJogador;
+    td_nickname.innerText = jogador.nome;
     var tbody = document.createElement("tbody");
 
     // Criando as células da tabela com os números da cartela
@@ -220,8 +228,11 @@ function Criar(nomeJogador, cartela) {
         for (var j = 0; j < 5; j++) {
             var td = document.createElement("td");
 
-            td.innerText = cartela[j][i];
+            td.innerText = jogador.cartela[j][i];
             tr_body.appendChild(td);
+            if (numerosSorteados.includes(jogador.cartela[j][i])) {
+            td.style.backgroundColor = "green";
+            }
         }
         tbody.appendChild(tr_body);
     }
@@ -238,39 +249,42 @@ function Criar(nomeJogador, cartela) {
 var sabio =
     "https://www.mundodeportivo.com/alfabeta/hero/2021/02/chopper.jpeg?width=768&aspect_ratio=16:9&format=nowebp";
 
-function lufi() {
-    sabio = "Imagens/Personagens/Screenshot_2.png";
+function getCharacterImage(characterName) {
+
+    switch (characterName) {
+        case 'lufi':
+            sabio = "Imagens/Personagens/Screenshot_2.png";
+            break;
+        case 'sanji':
+            sabio = "Imagens/Personagens/Screenshot_3.png";
+            break;
+        case 'zoro':
+            sabio = "Imagens/Personagens/Screenshot_4.png";
+            break;
+        case 'robin':
+            sabio = "Imagens/Personagens/Screenshot_5.png";
+            break;
+        case 'nami':
+            sabio = "Imagens/Personagens/Screenshot_1.png";
+            break;
+        default:
+            sabio = "Imagens/Personagens/Default.png";
+    }
+
     return sabio;
 }
 
-function sanji() {
-    sabio = "Imagens/Personagens/Screenshot_3.png";
-    return sabio;
-}
-
-function zoro() {
-    sabio = "Imagens/Personagens/Screenshot_4.png";
-    return sabio;
-}
-
-function robin() {
-    sabio = "Imagens/Personagens/Screenshot_5.png";
-    return sabio;
-}
-
-function nami() {
-    sabio = "Imagens/Personagens/Screenshot_1.png";
-    return sabio;
-}
 
 var intervalId;
 
 function sortearNumero(numerosSorteados) {
     var numero = Math.floor(Math.random() * 75) + 1;
-    if (numerosSorteados.has(numero)) {
+    if (numerosSorteados.includes(numero)) {
         return sortearNumero(numerosSorteados);
     }
-    numerosSorteados.add(numero);
+    if (numero !== null) {
+        numerosSorteados.push(numero);
+    }
     return numero;
 }
 
@@ -293,24 +307,69 @@ function limparNumerosSorteados() {
     }
 }
 
+function limparTabelas() {
+    var caixa = document.querySelectorAll("#caixa table");
+
+    // Removendo todas as tabelas da div caixa
+    Array.from(caixa).forEach(function (elemento) {
+        elemento.remove();
+    });
+}
+
+function carregarJogadores () {
+    limparTabelas();
+    for (let jogador of jogadores) {
+        Criar(jogador);
+    }
+}
+
+function ganhouNessaPorra() {
+    for (let jogador of jogadores) {
+        // Verificar se tem todos os itens da tabela.
+        var ganhou = true;
+        for (let i = 0; i < 5; i++) {
+            var linha = jogador.cartela[i];
+            for (let j = 0; j < 5; j++) {
+                if (!numerosSorteados.includes(linha[j])) {
+                    ganhou = false;
+                }
+            }
+        }
+        if (ganhou) {
+            alert(`O Jogador ${jogador.nome} foi um arrombado!`)
+            clearInterval(intervalId);
+        }
+    }
+}
+
 function iniciarSorteio() {
     limparNumerosSorteados();
+    numerosSorteados = [];
 
     var xd = document.getElementById("divisor");
     xd.style.display = "flex";
-
-    var numerosSorteados = new Set();
 
     if (intervalId) {
         clearInterval(intervalId);
     }
 
     intervalId = setInterval(function () {
-        var p = criarElementoP();
-        var numero = sortearNumero(numerosSorteados);
-        atualizarNumeroSorteado(p, numero);
-        if (numerosSorteados.size === 75) {
-            clearInterval(intervalId);
+        limparNumerosSorteados();
+        limparTabelas();
+        if(jogadores.length < 1) {
+            return clearInterval(intervalId);
         }
-    }, 2000);
+        var theNumber = sortearNumero(numerosSorteados);
+        // Numeros
+        for (let numero of numerosSorteados) {
+            let p = criarElementoP();
+            atualizarNumeroSorteado(p, numero);
+        }
+        carregarJogadores()
+        if (numerosSorteados.length === 75) {
+            return clearInterval(intervalId);
+        }
+        ganhouNessaPorra();
+        console.log(numerosSorteados);
+    }, 500);
 }
